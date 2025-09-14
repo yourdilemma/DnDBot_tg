@@ -73,7 +73,6 @@ class Bot:
         @bot.message_handler(commands=['quest'])
         def generate_quest(message):
             q_type = random.choice(['alive', 'stuff'])
-            q_target = random.choice(['alive', 'stuff'])
             if q_type == 'alive':
                 final_q_type = random.choice(quest_types_for_alive)
                 final_q_target = random.choice(quest_targets_alive)
@@ -89,3 +88,21 @@ class Bot:
 **Локация:** {q_location}
 """
             bot.reply_to(message, quest_text, parse_mode='Markdown')
+
+        @bot.message_handler(commands=['loot'])
+        def generate_loot(message):
+            # Определяем редкость
+            roll = random.randint(1, 100)
+            if roll <= 50:
+                 rarity, loot_list = "Common", loot_common
+            elif roll <= 85:
+                rarity, loot_list = "Uncommon", loot_uncommon
+            elif roll <= 95:
+                rarity, loot_list = "Rare", loot_rare
+            else:
+                rarity, loot_list = "Legendary", loot_legendary
+            
+            chosen_loot = random.choice(loot_list)
+            loot_text = f""" **Вы нашли ({rarity}):** **{chosen_loot}** """
+
+            bot.reply_to(message, loot_text, parse_mode='Markdown')
