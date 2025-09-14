@@ -48,6 +48,7 @@ class Bot:
 """
             bot.reply_to(message, help_text)
     
+        '''Функция генерирует случайного непися по заданным характеристикам в зависимости от пола'''
         @bot.message_handler(commands=['npc'])
         def generate_npc(message):
             gender = random.choice(['мужчина', 'женщина'])
@@ -70,6 +71,7 @@ class Bot:
 """
             bot.reply_to(message, npc_text, parse_mode='Markdown')
 
+        '''Функция генерирует случайный квест в зависимости от типа предмета задания'''
         @bot.message_handler(commands=['quest'])
         def generate_quest(message):
             q_type = random.choice(['alive', 'stuff'])
@@ -89,6 +91,7 @@ class Bot:
 """
             bot.reply_to(message, quest_text, parse_mode='Markdown')
 
+        '''Функция генерирует рандомный лут в завсимости от редкости'''
         @bot.message_handler(commands=['loot'])
         def generate_loot(message):
             # Определяем редкость
