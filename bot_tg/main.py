@@ -1,6 +1,5 @@
 import telebot
 import json
-import random
 import dungeon_master_bot
 
 with open("config.json","r") as file: #скрываем токен
