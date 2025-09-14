@@ -1,9 +1,9 @@
 import telebot
 import json
 import random
-import dungeon_master_bot
+import bot_tg.dungeon_master_bot as dungeon_master_bot
 
-with open("/config.json","r") as file: #скрываем токен
+with open("bot_tg/config.json","r") as file: #скрываем токен
     config = json.load(file)
     api_token = config["api_token"]
 
