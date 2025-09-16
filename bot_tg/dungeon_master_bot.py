@@ -2,7 +2,6 @@
 import telebot
 import random
 from telebot import types
-from functools import partial
 
 #просто словарики для рандомайзера
 #словари для неписей
